@@ -44,6 +44,34 @@
     </div>
   </section>
 
+
+  <!DOCTYPE html>
+  <html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Images</title>
+    <style>
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <picture>
+      <source media="(min-width: 1024px)" srcset="image-desktop.jpg">
+      <source media="(min-width: 768px)" srcset="image-tablet.jpg">
+      <img src="image-mobile.jpg" alt="Responsive image">
+    </picture>
+
+  </body>
+
+  </html>
+
   <section class="hero_cakes">
     <div class="hero_cakes_section container">
       <div class="cart">
