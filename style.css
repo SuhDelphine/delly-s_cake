@@ -110,7 +110,7 @@ img {
 /* CAKES SECTION  */
 .hero_cakes_section {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(min(240px, 100%), 1fr));
     padding: 80px 20px;
     gap: 40px;
 }
