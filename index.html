@@ -2,67 +2,1382 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
-  <link rel="stylesheet" href="./style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Delly's Tasty Delights | Artisan Cakes For Every Occasion</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+  <script src="./script.js" defer></script>
 </head>
 
 <body>
-  <div class="container">
-    <nav class="navigation">
-      <div class="nav-left">
-        <a href="#" class="logo">Delly's<span class="DTC">Tasty Cakes</span>
-        </a>
+
+  <!-- Navigation -->
+  <nav class="nav" id="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">
+          <!-- Inline SVG Logo -->
+          <svg width="60" height="60" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="logo-svg">
+            <!-- Logo SVG content -->
+            <path d="M50,80 C50,60 70,50 100,50 C130,50 150,60 150,80 C150,100 130,105 100,105 C70,105 50,100 50,80 Z"
+              fill="var(--color-primary)" />
+            <path d="M55,85 C55,100 75,120 100,120 C125,120 145,100 145,85" fill="none" stroke="var(--color-primary)"
+              stroke-width="3" />
+            <path d="M60,92 C60,110 75,130 100,130 C125,130 140,110 140,92" fill="none" stroke="var(--color-primary)"
+              stroke-width="2" />
+            <circle cx="100" cy="45" r="8" fill="#FF4572" />
+            <path d="M100,45 Q95,35 90,30" fill="none" stroke="var(--color-primary)" stroke-width="2" />
+          </svg>
+        </span>
+        Delly's <span>Tasty Delights</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="cakes.html" class="nav-link">Cakes</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="contact.html" class="nav-link">Contact</a>
       </div>
-      <div class="nav-right">
-        <a href="#" class="link">Cakes</a>
-        <a href="#" class="link">filling</a>
-        <a href="#" class="link">Order</a>
-        <a href="#" class="link">Contact</a>
+      <div class="flex items-center gap-3">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <i class="fas fa-moon dark-icon"></i>
+          <i class="fas fa-sun light-icon" style="display: none;"></i>
+        </button>
+        <button class="mobile-menu-button" aria-label="Open menu">
+          <i class="fas fa-bars"></i>
+        </button>
       </div>
-    </nav>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="overlay" id="overlay"></div>
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-header">
+      <div class="logo">Sweet <span>Delights</span></div>
+      <button class="mobile-menu-close" aria-label="Close menu">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <div class="mobile-menu-links">
+      <a href="index.html" class="mobile-menu-link active">Home</a>
+      <a href="cakes.html" class="mobile-menu-link">Cakes</a>
+      <a href="about.html" class="mobile-menu-link">About</a>
+      <a href="contact.html" class="mobile-menu-link">Contact</a>
+    </div>
   </div>
 
-  <section class="hero">
-    <div class="hero-section container">
-      <div class="hero-left">
-        <h2>Baking <span> with passion</span></h2>
-        <p>
-          Baking is our passion. creating cakes that put smiles on our clients
-          faces is what makes us happy, we cant wait to work with you to
-          create something that will take center stage at your next event and
-          knocking everyone's taste buds off at the same time!
-        </p>
-        <button class="btn_hero">order now</button>
+  <!-- Hero Section -->
+  <div id="app">
+    <section class="hero">
+      <div class="container">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+          <div class="text-center lg:text-left">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Artisan Cakes For Every Celebration</h1>
+            <p class="text-lg mb-8">Handcrafted with love, our cakes are made from the finest ingredients to
+              make your special moments unforgettable.</p>
+            <div class="flex flex-wrap gap-4 justify-center lg:justify-start">
+              <a href="cakes.html" class="btn btn-primary btn-lg">
+                <i class="fas fa-shopping-cart mr-2"></i> Shop Now
+              </a>
+              <a href="contact.html" class="btn btn-outline btn-lg">
+                <i class="fas fa-phone mr-2"></i> Contact Us
+              </a>
+            </div>
+          </div>
+          <div class="relative hidden lg:block">
+            <img
+              src="https://images.unsplash.com/photo-1535141192574-5d4897c12636?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+              alt="Delicious cake" class="rounded-lg shadow-lg">
+            <div
+              class="absolute -bottom-6 -left-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg p-4 w-36 h-36 flex flex-col items-center justify-center">
+              <div class="text-3xl font-bold text-pink-500">10%</div>
+              <div class="text-sm text-center">Discount on First Order</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section">
+      <div class="container">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="card feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-birthday-cake"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-2">Custom Designs</h3>
+            <p>Create the cake of your dreams with our custom design service. Perfect for any occasion.</p>
+          </div>
+          <div class="card feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-truck"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-2">Fast Delivery</h3>
+            <p>We deliver your cake fresh to your doorstep, with same-day delivery available.</p>
+          </div>
+          <div class="card feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-leaf"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-2">Quality Ingredients</h3>
+            <p>We use only the finest organic ingredients to ensure delicious taste every time.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="section bg-[#fff8fa] dark:bg-[#252525]">
+      <div class="container">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold mb-4">Explore Our Categories</h2>
+          <p class="text-lg max-w-2xl mx-auto">Discover our wide range of cakes perfect for any occasion, from
+            birthdays to weddings and everything in between.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <a href="cakes.html?category=birthday" class="category-card">
+            <img
+              src="https://images.unsplash.com/photo-1562777717-dc6984f65a78?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+              alt="Birthday Cakes" class="category-img">
+            <div class="category-overlay">
+              <h3 class="text-xl font-semibold">Birthday Cakes</h3>
+            </div>
+          </a>
+          <a href="cakes.html?category=wedding" class="category-card">
+            <img
+              src="https://images.unsplash.com/photo-1615397349754-cfa2066a298e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+              alt="Wedding Cakes" class="category-img">
+            <div class="category-overlay">
+              <h3 class="text-xl font-semibold">Wedding Cakes</h3>
+            </div>
+          </a>
+          <a href="cakes.html?category=anniversary" class="category-card">
+            <img
+              src="https://images.unsplash.com/photo-1542826438-bd32f43d626f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+              alt="Anniversary Cakes" class="category-img">
+            <div class="category-overlay">
+              <h3 class="text-xl font-semibold">Anniversary Cakes</h3>
+            </div>
+          </a>
+          <a href="cakes.html?category=custom" class="category-card">
+            <img
+              src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+              alt="Custom Cakes" class="category-img">
+            <div class="category-overlay">
+              <h3 class="text-xl font-semibold">Custom Cakes</h3>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Products Section -->
+    <section class="section">
+      <div class="container">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold mb-4">Our Bestsellers</h2>
+          <p class="text-lg max-w-2xl mx-auto">Check out our most popular cakes that our customers absolutely
+            love.</p>
+        </div>
+
+        <div class="product-grid">
+          <div class="card product-card">
+            <div class="product-image">
+              <img
+                src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                alt="Chocolate Delight Cake">
+              <div class="product-tags">
+                <span class="badge badge-primary">Bestseller</span>
+              </div>
+            </div>
+            <div class="product-content">
+              <h3 class="product-title">Chocolate Delight Cake</h3>
+              <p class="product-description">Rich and moist chocolate cake layered with chocolate ganache
+                and decorated with chocolate shavings.</p>
+              <div class="product-footer">
+                <div class="product-price">$49.99</div>
+                <a href="cake-detail.html?id=1" class="btn btn-primary btn-sm">View Details</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="card product-card">
+            <div class="product-image">
+              <img
+                src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                alt="Vanilla Berry Bliss">
+              <div class="product-tags">
+                <span class="badge badge-primary">Bestseller</span>
+                <span class="badge badge-secondary">Vegan</span>
+              </div>
+            </div>
+            <div class="product-content">
+              <h3 class="product-title">Vanilla Berry Bliss</h3>
+              <p class="product-description">Light vanilla sponge cake with layers of mixed berry compote
+                and whipped cream frosting.</p>
+              <div class="product-footer">
+                <div class="product-price">$44.99</div>
+                <a href="cake-detail.html?id=2" class="btn btn-primary btn-sm">View Details</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="card product-card">
+            <div class="product-image">
+              <img
+                src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                alt="Red Velvet Dream">
+              <div class="product-tags">
+                <span class="badge badge-primary">Bestseller</span>
+              </div>
+            </div>
+            <div class="product-content">
+              <h3 class="product-title">Red Velvet Dream</h3>
+              <p class="product-description">Classic red velvet cake with cream cheese frosting, perfect
+                for any special occasion.</p>
+              <div class="product-footer">
+                <div class="product-price">$54.99</div>
+                <a href="cake-detail.html?id=3" class="btn btn-primary btn-sm">View Details</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-12">
+          <a href="cakes.html" class="btn btn-outline">
+            <i class="fas fa-cake-candles mr-2"></i> View All Cakes
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section bg-[#fff8fa] dark:bg-[#252525]">
+      <div class="container">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold mb-4">What Our Customers Say</h2>
+          <p class="text-lg max-w-2xl mx-auto">Don't just take our word for it. Here's what our happy
+            customers have to say about our cakes.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="card testimonial">
+            <div class="stars">
+              <i class="fas fa-star star"></i>
+              <i class="fas fa-star star"></i>
+              <i class="fas fa-star star"></i>
+              <i class="fas fa-star star"></i>
+              <i class="fas fa-star star"></i>
+            </div>
+            <div class="testimonial-content">
+              The birthday cake for my daughter was absolutely stunning! Not only did it look beautiful,
+              but it tasted amazing too. Thank you for making her day special!
+            </div>
+            <div class="testimonial-author">Sarah Johnson</div>
+            <div class="testimonial-role">Birthday Celebration</div>
+          </div>
+
+          <div class="card testimonial">
+            <div class="stars">
+              <i class="fas fa-star star"></i>
+              <i class="fas fa-star star"></i>
+              <i class="fas fa-star star"></i>
+              <i class="fas fa-star star"></i>
+              <i class="fas fa-star star"></i>
+            </div>
+            <div class="testimonial-content">
+              Our wedding cake was a showstopper! Everyone kept asking where we got it from. The design
+              was exactly what we wanted and the taste was phenomenal.
+            </div>
+            <div class="testimonial-author">Michael & Emma Davis</div>
+            <div class="testimonial-role">Wedding Celebration</div>
+          </div>
+
+          <div class="card testimonial">
+            <div class="stars">
+              <i class="fas fa-star star"></i>
+              <i class="fas fa-star star"></i>
+              <i class="fas fa-star star"></i>
+              <i class="fas fa-star star"></i>
+              <i class="fas fa-star star"></i>
+            </div>
+            <div class="testimonial-content">
+              I ordered a custom cake for my company's anniversary and it exceeded all expectations. The
+              attention to detail was impressive and it tasted delicious!
+            </div>
+            <div class="testimonial-author">Robert Wilson</div>
+            <div class="testimonial-role">Corporate Event</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="section">
+      <div class="container">
+        <div class="newsletter">
+          <h2 class="text-2xl font-bold mb-2">Subscribe to Our Newsletter</h2>
+          <p class="mb-6">Get updates on new cake designs, seasonal offers, and exclusive discounts.</p>
+          <form id="newsletterForm" class="max-w-md mx-auto">
+            <div class="flex flex-col sm:flex-row gap-3">
+              <input type="email" class="input flex-1" placeholder="Your email address" required>
+              <button type="submit" class="btn btn-primary">Subscribe</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div class="md:col-span-1">
+            <div class="footer-logo">Sweet <span>Delights</span></div>
+            <p class="mb-4">Artisan cakes for every celebration, handcrafted with love and the finest
+              ingredients.</p>
+            <div class="social-links">
+              <a href="#" class="social-link" aria-label="Facebook">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="#" class="social-link" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="#" class="social-link" aria-label="Twitter">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="#" class="social-link" aria-label="Pinterest">
+                <i class="fab fa-pinterest-p"></i>
+              </a>
+            </div>
+          </div>
+          <div>
+            <h4>Quick Links</h4>
+            <ul class="footer-links">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="cakes.html">Cakes</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="contact.html">Contact</a></li>
+              <li><a href="faqs.html">FAQs</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Categories</h4>
+            <ul class="footer-links">
+              <li><a href="cakes.html?category=birthday">Birthday Cakes</a></li>
+              <li><a href="cakes.html?category=wedding">Wedding Cakes</a></li>
+              <li><a href="cakes.html?category=anniversary">Anniversary Cakes</a></li>
+              <li><a href="cakes.html?category=custom">Custom Cakes</a></li>
+              <li><a href="cakes.html?category=corporate">Corporate Cakes</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Contact Us</h4>
+            <ul class="footer-links">
+              <li><i class="fas fa-map-marker-alt mr-2"></i> 123 Baker Street, New York, NY 10001</li>
+              <li><i class="fas fa-phone mr-2"></i> (555) 123-4567</li>
+              <li><i class="fas fa-envelope mr-2"></i> info@sweetdelights.com</li>
+              <li><i class="fas fa-clock mr-2"></i> Mon-Sat: 9AM - 7PM</li>
+            </ul>
+          </div>
+        </div>
+        <div class="copyright">
+          <p>&copy; 2023 Sweet Delights. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Cakes Grid Page -->
+  <div id="cakesPage" style="display: none;">
+    <div class="container py-8">
+      <div class="breadcrumbs">
+        <div class="breadcrumb-item">
+          <a href="index.html">Home</a>
+          <span class="breadcrumb-separator">
+            <i class="fas fa-chevron-right text-xs"></i>
+          </span>
+        </div>
+        <div class="breadcrumb-item active">Cakes</div>
       </div>
 
-      <div class="hero-right">
-        <img src="images/IMG-20250202-WA0009.jpg" class="cake_1" />
-        <div class="circle"></div>
+      <h1 class="text-3xl font-bold mb-8">Our Cakes Collection</h1>
+
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+        <!-- Filter sidebar -->
+        <div class="lg:col-span-1">
+          <div class="filter-panel">
+            <div class="search-bar">
+              <i class="fas fa-search search-icon"></i>
+              <input type="text" id="searchInput" class="input search-input" placeholder="Search cakes...">
+            </div>
+
+            <div class="filter-section">
+              <h3 class="filter-heading">Categories</h3>
+              <div class="filter-options">
+                <label class="checkbox-container">
+                  All Cakes
+                  <input type="checkbox" name="category" value="all" checked>
+                  <span class="checkmark"></span>
+                </label>
+                <label class="checkbox-container">
+                  Birthday Cakes
+                  <input type="checkbox" name="category" value="birthday">
+                  <span class="checkmark"></span>
+                </label>
+                <label class="checkbox-container">
+                  Wedding Cakes
+                  <input type="checkbox" name="category" value="wedding">
+                  <span class="checkmark"></span>
+                </label>
+                <label class="checkbox-container">
+                  Anniversary Cakes
+                  <input type="checkbox" name="category" value="anniversary">
+                  <span class="checkmark"></span>
+                </label>
+                <label class="checkbox-container">
+                  Custom Cakes
+                  <input type="checkbox" name="category" value="custom">
+                  <span class="checkmark"></span>
+                </label>
+                <label class="checkbox-container">
+                  Corporate Cakes
+                  <input type="checkbox" name="category" value="corporate">
+                  <span class="checkmark"></span>
+                </label>
+              </div>
+            </div>
+
+            <div class="filter-section">
+              <h3 class="filter-heading">Flavors</h3>
+              <div class="filter-options">
+                <label class="checkbox-container">
+                  Chocolate
+                  <input type="checkbox" name="flavor" value="chocolate">
+                  <span class="checkmark"></span>
+                </label>
+                <label class="checkbox-container">
+                  Vanilla
+                  <input type="checkbox" name="flavor" value="vanilla">
+                  <span class="checkmark"></span>
+                </label>
+                <label class="checkbox-container">
+                  Red Velvet
+                  <input type="checkbox" name="flavor" value="red-velvet">
+                  <span class="checkmark"></span>
+                </label>
+                <label class="checkbox-container">
+                  Fruit
+                  <input type="checkbox" name="flavor" value="fruit">
+                  <span class="checkmark"></span>
+                </label>
+                <label class="checkbox-container">
+                  Cheesecake
+                  <input type="checkbox" name="flavor" value="cheesecake">
+                  <span class="checkmark"></span>
+                </label>
+              </div>
+            </div>
+
+            <div class="filter-section">
+              <h3 class="filter-heading">Dietary Options</h3>
+              <div class="filter-options">
+                <label class="checkbox-container">
+                  Vegan
+                  <input type="checkbox" name="dietary" value="vegan">
+                  <span class="checkmark"></span>
+                </label>
+                <label class="checkbox-container">
+                  Gluten-Free
+                  <input type="checkbox" name="dietary" value="gluten-free">
+                  <span class="checkmark"></span>
+                </label>
+                <label class="checkbox-container">
+                  Sugar-Free
+                  <input type="checkbox" name="dietary" value="sugar-free">
+                  <span class="checkmark"></span>
+                </label>
+                <label class="checkbox-container">
+                  Nut-Free
+                  <input type="checkbox" name="dietary" value="nut-free">
+                  <span class="checkmark"></span>
+                </label>
+              </div>
+            </div>
+
+            <div class="filter-section">
+              <h3 class="filter-heading">Price Range</h3>
+              <input type="range" class="price-slider" min="0" max="200" value="200" id="priceRange">
+              <div class="flex justify-between text-sm">
+                <span>$0</span>
+                <span id="priceValue">$200+</span>
+              </div>
+            </div>
+
+            <button id="clearFilters" class="btn btn-outline w-full mt-4">
+              <i class="fas fa-filter mr-2"></i> Clear Filters
+            </button>
+          </div>
+        </div>
+
+        <!-- Products grid -->
+        <div class="lg:col-span-3">
+          <div class="flex justify-between items-center mb-6">
+            <div id="filterInfo">Showing all cakes</div>
+            <div class="flex items-center">
+              <label for="sortOrder" class="mr-2 text-sm">Sort by:</label>
+              <select id="sortOrder" class="input">
+                <option value="default">Featured</option>
+                <option value="price-low">Price: Low to High</option>
+                <option value="price-high">Price: High to Low</option>
+                <option value="name-asc">Name: A to Z</option>
+                <option value="name-desc">Name: Z to A</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="product-grid" id="productsGrid">
+            <!-- Products will be dynamically inserted here -->
+          </div>
+
+          <!-- Empty state (hidden by default) -->
+          <div id="emptyState" class="empty-state hidden">
+            <div class="empty-icon">
+              <i class="fas fa-cake-candles"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-2">No cakes found</h3>
+            <p class="mb-4">Try adjusting your filters or search criteria.</p>
+            <button id="resetFilters" class="btn btn-primary">
+              Reset Filters
+            </button>
+          </div>
+
+          <!-- Pagination -->
+          <div class="pagination" id="pagination">
+            <!-- Pagination will be dynamically inserted here -->
+          </div>
+        </div>
       </div>
     </div>
-  </section>
+  </div>
 
+  <!-- Cake Detail Page -->
+  <div id="cakeDetailPage" style="display: none;">
+    <div class="container py-8">
+      <div class="breadcrumbs" id="detailBreadcrumbs">
+        <!-- Breadcrumbs will be dynamically inserted here -->
+      </div>
 
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <!-- Gallery -->
+        <div class="gallery">
+          <div class="gallery-main" id="mainImage">
+            <!-- Main image will be dynamically inserted here -->
+          </div>
+          <div class="gallery-thumbs" id="thumbnails">
+            <!-- Thumbnails will be dynamically inserted here -->
+          </div>
+        </div>
 
-  <section class="hero_cakes">
-    <div class="hero_cakes_section container">
-      <div class="cart">
-        <img src="./images/IMG-20250202-WA0009.jpg" alt="" />
+        <!-- Cake info -->
+        <div>
+          <h1 class="text-3xl font-bold mb-2" id="cakeTitle"></h1>
+
+          <div class="flex items-center gap-2 mb-4">
+            <div class="stars">
+              <i class="fas fa-star star"></i>
+              <i class="fas fa-star star"></i>
+              <i class="fas fa-star star"></i>
+              <i class="fas fa-star star"></i>
+              <i class="fas fa-star-half-alt star"></i>
+            </div>
+            <span class="text-sm">(24 reviews)</span>
+          </div>
+
+          <div class="text-2xl font-bold text-pink-500 mb-4" id="cakePrice"></div>
+
+          <div class="mb-6" id="cakeDescription"></div>
+
+          <div class="mb-6">
+            <div class="grid grid-cols-2 gap-4">
+              <div>
+                <h3 class="text-sm font-medium mb-2">Flavor</h3>
+                <select id="flavorSelect" class="input">
+                  <!-- Flavor options will be dynamically inserted here -->
+                </select>
+              </div>
+              <div>
+                <h3 class="text-sm font-medium mb-2">Size</h3>
+                <select id="sizeSelect" class="input">
+                  <!-- Size options will be dynamically inserted here -->
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-8">
+            <h3 class="text-sm font-medium mb-2">Quantity</h3>
+            <div class="quantity-selector">
+              <button type="button" class="quantity-button" id="decreaseQuantity">
+                <i class="fas fa-minus"></i>
+              </button>
+              <input type="number" class="quantity-input" id="quantity" value="1" min="1" max="10">
+              <button type="button" class="quantity-button" id="increaseQuantity">
+                <i class="fas fa-plus"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap gap-4">
+            <button id="orderNowBtn" class="btn btn-primary btn-lg">
+              <i class="fas fa-shopping-cart mr-2"></i> Order Now
+            </button>
+            <button id="addToFavoritesBtn" class="btn btn-outline btn-lg">
+              <i class="far fa-heart mr-2"></i> Add to Favorites
+            </button>
+          </div>
+
+          <div class="mt-8 grid grid-cols-2 sm:grid-cols-3 gap-4">
+            <div class="flex items-center">
+              <i class="fas fa-check-circle text-green-500 mr-2"></i>
+              <span class="text-sm">Fresh Daily</span>
+            </div>
+            <div class="flex items-center">
+              <i class="fas fa-check-circle text-green-500 mr-2"></i>
+              <span class="text-sm">Quality Ingredients</span>
+            </div>
+            <div class="flex items-center">
+              <i class="fas fa-check-circle text-green-500 mr-2"></i>
+              <span class="text-sm">Same Day Delivery</span>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="cart">
-        <img src="./images/IMG-20250202-WA0009.jpg" alt="" />
+
+      <!-- Additional info tabs -->
+      <div class="mt-12">
+        <div class="tabs">
+          <div class="tab-item active" data-tab="description">Description</div>
+          <div class="tab-item" data-tab="ingredients">Ingredients</div>
+          <div class="tab-item" data-tab="reviews">Reviews (24)</div>
+          <div class="tab-item" data-tab="shipping">Shipping & Returns</div>
+        </div>
+
+        <div class="tab-content active" id="descriptionTab">
+          <p class="mb-4">Our signature cake that's perfect for any celebration! This delicious cake features
+            multiple layers of moist cake filled with your choice of filling and covered in smooth
+            buttercream frosting.</p>
+          <p class="mb-4">Each cake is handcrafted by our expert bakers using only the finest ingredients. We
+            can customize the design and colors to match your event theme.</p>
+          <h3 class="font-semibold mt-6 mb-2">Perfect For:</h3>
+          <ul class="list-disc pl-5 mb-4">
+            <li>Birthdays</li>
+            <li>Anniversaries</li>
+            <li>Corporate events</li>
+            <li>Any special celebration</li>
+          </ul>
+        </div>
+
+        <div class="tab-content" id="ingredientsTab">
+          <h3 class="font-semibold mb-4">Ingredients</h3>
+          <p class="mb-4">We use only the highest quality ingredients in all of our cakes:</p>
+          <ul class="list-disc pl-5 mb-4">
+            <li>Organic flour</li>
+            <li>Free-range eggs</li>
+            <li>Belgian chocolate</li>
+            <li>Pure Madagascar vanilla</li>
+            <li>Fresh seasonal fruits</li>
+            <li>Locally sourced dairy</li>
+          </ul>
+          <p class="text-sm italic mt-6">* All of our cakes contain gluten, dairy, and eggs unless specified
+            as vegan or gluten-free. May contain traces of nuts.</p>
+        </div>
+
+        <div class="tab-content" id="reviewsTab">
+          <div class="mb-6">
+            <div class="flex justify-between items-center mb-4">
+              <h3 class="font-semibold">Customer Reviews</h3>
+              <button class="btn btn-primary btn-sm">Write a Review</button>
+            </div>
+
+            <div class="review">
+              <div class="review-header">
+                <div class="review-author">Emily Johnson</div>
+                <div class="review-date">Jan 15, 2023</div>
+              </div>
+              <div class="stars">
+                <i class="fas fa-star star"></i>
+                <i class="fas fa-star star"></i>
+                <i class="fas fa-star star"></i>
+                <i class="fas fa-star star"></i>
+                <i class="fas fa-star star"></i>
+              </div>
+              <div class="review-content">
+                <p>This cake was absolutely delicious! I ordered it for my daughter's birthday and
+                  everyone loved it. The design was exactly what I asked for and the flavor was
+                  amazing. Will definitely order again!</p>
+              </div>
+            </div>
+
+            <div class="review">
+              <div class="review-header">
+                <div class="review-author">Michael Rodriguez</div>
+                <div class="review-date">Dec 5, 2022</div>
+              </div>
+              <div class="stars">
+                <i class="fas fa-star star"></i>
+                <i class="fas fa-star star"></i>
+                <i class="fas fa-star star"></i>
+                <i class="fas fa-star star"></i>
+                <i class="fas fa-star star"></i>
+              </div>
+              <div class="review-content">
+                <p>I ordered this cake for our anniversary and it exceeded all expectations. Not only
+                  was it beautiful, but it tasted fantastic. The delivery was prompt and the cake
+                  arrived in perfect condition.</p>
+              </div>
+            </div>
+
+            <div class="review">
+              <div class="review-header">
+                <div class="review-author">Sarah Thompson</div>
+                <div class="review-date">Nov 18, 2022</div>
+              </div>
+              <div class="stars">
+                <i class="fas fa-star star"></i>
+                <i class="fas fa-star star"></i>
+                <i class="fas fa-star star"></i>
+                <i class="fas fa-star star"></i>
+                <i class="far fa-star star"></i>
+              </div>
+              <div class="review-content">
+                <p>The cake was delicious and looked great! The only reason I'm giving 4 stars instead
+                  of 5 is that the delivery was a bit later than the scheduled time. But the taste and
+                  appearance were perfect!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-content" id="shippingTab">
+          <h3 class="font-semibold mb-4">Delivery Information</h3>
+          <p class="mb-4">We offer several delivery options to ensure your cake arrives fresh and on time:</p>
+          <ul class="list-disc pl-5 mb-6">
+            <li><strong>Standard Delivery:</strong> Order at least 48 hours in advance for delivery on your
+              specified date.</li>
+            <li><strong>Rush Delivery:</strong> Need a cake sooner? Contact us for availability and
+              additional fees.</li>
+            <li><strong>Same-Day Delivery:</strong> Limited availability, must order before 10AM.</li>
+            <li><strong>Pick-Up:</strong> You can pick up your order at our bakery at your convenience
+              during business hours.</li>
+          </ul>
+
+          <h3 class="font-semibold mb-4">Return Policy</h3>
+          <p class="mb-4">Due to the perishable nature of our products, we do not accept returns. However, if
+            you are not completely satisfied with your order, please contact us within 24 hours of receiving
+            your cake and we will work to make it right.</p>
+        </div>
       </div>
-      <div class="cart">
-        <img src="./images/IMG-20250202-WA0009.jpg" alt="" />
-      </div>
-      <div class="cart">
-        <img src="./images/IMG-20250202-WA0009.jpg" alt="" />
+
+      <!-- Related products -->
+      <div class="related-products">
+        <h2 class="text-2xl font-bold mb-6">You May Also Like</h2>
+        <div class="product-grid" id="relatedProducts">
+          <!-- Related products will be dynamically inserted here -->
+        </div>
       </div>
     </div>
-  </section>
+  </div>
+
+  <!-- About Page -->
+  <div id="aboutPage" style="display: none;">
+    <div class="container py-8">
+      <div class="breadcrumbs">
+        <div class="breadcrumb-item">
+          <a href="index.html">Home</a>
+          <span class="breadcrumb-separator">
+            <i class="fas fa-chevron-right text-xs"></i>
+          </span>
+        </div>
+        <div class="breadcrumb-item active">About Us</div>
+      </div>
+
+      <section class="mb-16">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <h1 class="text-3xl font-bold mb-6">Our Sweet Story</h1>
+            <p class="mb-4">Sweet Delights began in 2010 as a small family-owned bakery with a passion for
+              creating delicious, handcrafted cakes. What started as a hobby in founder Maria Garcia's
+              kitchen has grown into a beloved bakery known for premium quality and exceptional designs.
+            </p>
+            <p class="mb-4">Over the years, we've maintained our commitment to using only the finest
+              ingredients and traditional baking methods, while continuously innovating with new flavors
+              and designs. Every cake we create is a labor of love, made to bring joy to your special
+              occasions.</p>
+            <p>Today, our team of talented pastry chefs continues to push the boundaries of cake design,
+              creating edible works of art that not only look stunning but taste amazing too. We're proud
+              to be part of thousands of celebrations each year, from intimate birthdays to grand
+              weddings.</p>
+          </div>
+          <div class="relative">
+            <img
+              src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+              alt="Our bakery" class="rounded-lg shadow-lg">
+            <div class="absolute -bottom-6 -right-6 bg-pink-100 dark:bg-gray-800 rounded-lg shadow-lg p-6 max-w-xs">
+              <div class="text-lg font-bold mb-2">13+ Years</div>
+              <div class="text-sm">Creating sweet memories for our customers</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="mb-16 bg-[#fff8fa] dark:bg-[#252525] py-12 rounded-lg">
+        <div class="container">
+          <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold mb-4">Our Values</h2>
+            <p class="text-lg max-w-2xl mx-auto">The principles that guide everything we do at Sweet
+              Delights.</p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="card feature-card">
+              <div class="feature-icon">
+                <i class="fas fa-leaf"></i>
+              </div>
+              <h3 class="text-xl font-semibold mb-2">Quality Ingredients</h3>
+              <p>We believe that exceptional cakes start with exceptional ingredients. We source organic,
+                locally-produced ingredients whenever possible.</p>
+            </div>
+            <div class="card feature-card">
+              <div class="feature-icon">
+                <i class="fas fa-heart"></i>
+              </div>
+              <h3 class="text-xl font-semibold mb-2">Made with Love</h3>
+              <p>Every cake is handcrafted with attention to detail and a generous dose of passion. We
+                take pride in every creation that leaves our kitchen.</p>
+            </div>
+            <div class="card feature-card">
+              <div class="feature-icon">
+                <i class="fas fa-users"></i>
+              </div>
+              <h3 class="text-xl font-semibold mb-2">Customer First</h3>
+              <p>Your satisfaction is our priority. We work closely with each customer to ensure your cake
+                exceeds expectations.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="mb-16">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold mb-4">Meet Our Team</h2>
+          <p class="text-lg max-w-2xl mx-auto">The talented individuals who create your delicious cakes.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="card">
+            <img
+              src="https://images.unsplash.com/photo-1581299894007-aaa50297cf16?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+              alt="Maria Garcia" class="w-full aspect-square object-cover rounded-t-md">
+            <div class="p-6 text-center">
+              <h3 class="text-xl font-semibold mb-1">Maria Garcia</h3>
+              <div class="text-sm text-pink-500 mb-3">Founder & Head Baker</div>
+              <p class="text-sm">Maria has been baking since she was 10 years old, learning traditional
+                recipes from her grandmother.</p>
+            </div>
+          </div>
+          <div class="card">
+            <img
+              src="https://images.unsplash.com/photo-1595152772835-219674b2a8a6?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+              alt="James Wilson" class="w-full aspect-square object-cover rounded-t-md">
+            <div class="p-6 text-center">
+              <h3 class="text-xl font-semibold mb-1">James Wilson</h3>
+              <div class="text-sm text-pink-500 mb-3">Executive Pastry Chef</div>
+              <p class="text-sm">With 15 years of experience in luxury hotels, James brings expert
+                technique to all our creations.</p>
+            </div>
+          </div>
+          <div class="card">
+            <img
+              src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+              alt="Sophia Chen" class="w-full aspect-square object-cover rounded-t-md">
+            <div class="p-6 text-center">
+              <h3 class="text-xl font-semibold mb-1">Sophia Chen</h3>
+              <div class="text-sm text-pink-500 mb-3">Cake Designer</div>
+              <p class="text-sm">Sophia's artistic background helps her create stunning, one-of-a-kind
+                cake designs.</p>
+            </div>
+          </div>
+          <div class="card">
+            <img
+              src="https://images.unsplash.com/photo-1592621385612-4d7129426394?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+              alt="Marcus Johnson" class="w-full aspect-square object-cover rounded-t-md">
+            <div class="p-6 text-center">
+              <h3 class="text-xl font-semibold mb-1">Marcus Johnson</h3>
+              <div class="text-sm text-pink-500 mb-3">Flavor Specialist</div>
+              <p class="text-sm">Marcus develops our unique flavor combinations, always exploring new and
+                exciting tastes.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="mb-16">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div>
+            <h2 class="text-3xl font-bold mb-6">Our Baking Process</h2>
+            <p class="mb-6">At Sweet Delights, we believe that creating the perfect cake is both an art and
+              a science. Our process ensures that every cake not only looks beautiful but tastes amazing
+              too.</p>
+
+            <div class="space-y-6">
+              <div class="flex">
+                <div
+                  class="flex-shrink-0 h-10 w-10 rounded-full bg-pink-100 dark:bg-gray-800 flex items-center justify-center text-pink-500 mr-4">
+                  1</div>
+                <div>
+                  <h3 class="font-semibold mb-1">Consultation</h3>
+                  <p class="text-sm">We start by understanding your vision, occasion, and preferences
+                    to design the perfect cake.</p>
+                </div>
+              </div>
+              <div class="flex">
+                <div
+                  class="flex-shrink-0 h-10 w-10 rounded-full bg-pink-100 dark:bg-gray-800 flex items-center justify-center text-pink-500 mr-4">
+                  2</div>
+                <div>
+                  <h3 class="font-semibold mb-1">Design</h3>
+                  <p class="text-sm">Our designers create a custom plan for your cake, including
+                    flavors, fillings, and decorations.</p>
+                </div>
+              </div>
+              <div class="flex">
+                <div
+                  class="flex-shrink-0 h-10 w-10 rounded-full bg-pink-100 dark:bg-gray-800 flex items-center justify-center text-pink-500 mr-4">
+                  3</div>
+                <div>
+                  <h3 class="font-semibold mb-1">Baking</h3>
+                  <p class="text-sm">Using premium ingredients, our pastry chefs bake your cake layers
+                    to perfection.</p>
+                </div>
+              </div>
+              <div class="flex">
+                <div
+                  class="flex-shrink-0 h-10 w-10 rounded-full bg-pink-100 dark:bg-gray-800 flex items-center justify-center text-pink-500 mr-4">
+                  4</div>
+                <div>
+                  <h3 class="font-semibold mb-1">Assembly & Decoration</h3>
+                  <p class="text-sm">We carefully layer, fill, and frost your cake before adding the
+                    final decorative elements.</p>
+                </div>
+              </div>
+              <div class="flex">
+                <div
+                  class="flex-shrink-0 h-10 w-10 rounded-full bg-pink-100 dark:bg-gray-800 flex items-center justify-center text-pink-500 mr-4">
+                  5</div>
+                <div>
+                  <h3 class="font-semibold mb-1">Quality Check</h3>
+                  <p class="text-sm">Every cake undergoes a final review to ensure it meets our high
+                    standards.</p>
+                </div>
+              </div>
+              <div class="flex">
+                <div
+                  class="flex-shrink-0 h-10 w-10 rounded-full bg-pink-100 dark:bg-gray-800 flex items-center justify-center text-pink-500 mr-4">
+                  6</div>
+                <div>
+                  <h3 class="font-semibold mb-1">Delivery</h3>
+                  <p class="text-sm">We carefully package and deliver your cake to ensure it arrives
+                    in perfect condition.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <img
+              src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+              alt="Baking process" class="rounded-lg shadow-lg mb-6">
+            <img
+              src="https://images.unsplash.com/photo-1579697096985-41fe1430e5df?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+              alt="Cake decoration" class="rounded-lg shadow-lg">
+          </div>
+        </div>
+      </section>
+
+      <section class="mb-16 bg-[#fff8fa] dark:bg-[#252525] py-12 rounded-lg text-center">
+        <h2 class="text-3xl font-bold mb-6">Our Achievements</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="p-6">
+            <div class="text-4xl font-bold text-pink-500 mb-2">10k+</div>
+            <div class="text-lg font-semibold mb-1">Happy Customers</div>
+            <p class="text-sm">Satisfied customers who keep coming back for more</p>
+          </div>
+          <div class="p-6">
+            <div class="text-4xl font-bold text-pink-500 mb-2">5</div>
+            <div class="text-lg font-semibold mb-1">Award Winning</div>
+            <p class="text-sm">Recognized for excellence in taste and design</p>
+          </div>
+          <div class="p-6">
+            <div class="text-4xl font-bold text-pink-500 mb-2">50+</div>
+            <div class="text-lg font-semibold mb-1">Unique Flavors</div>
+            <p class="text-sm">Constantly expanding our flavor offerings</p>
+          </div>
+          <div class="p-6">
+            <div class="text-4xl font-bold text-pink-500 mb-2">3</div>
+            <div class="text-lg font-semibold mb-1">Locations</div>
+            <p class="text-sm">Serving customers across the city</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="mb-16">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold mb-4">Visit Our Bakery</h2>
+          <p class="text-lg max-w-2xl mx-auto">Come see where the magic happens! Visit our flagship bakery to
+            watch our bakers in action, taste our creations, and place your custom orders in person.</p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div>
+            <img
+              src="https://images.unsplash.com/photo-1549057446-9f5c6ac91a04?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+              alt="Our bakery" class="rounded-lg shadow-lg">
+          </div>
+          <div>
+            <div class="card p-8">
+              <h3 class="text-xl font-semibold mb-4">Our Locations</h3>
+
+              <div class="mb-6">
+                <h4 class="font-semibold">Main Bakery & Cafe</h4>
+                <address class="not-italic">
+                  123 Baker Street<br>
+                  New York, NY 10001<br>
+                  (555) 123-4567
+                </address>
+                <div class="mt-2">
+                  <div class="font-medium">Hours:</div>
+                  <div class="text-sm">Monday-Friday: 7AM - 7PM</div>
+                  <div class="text-sm">Saturday-Sunday: 8AM - 5PM</div>
+                </div>
+              </div>
+
+              <div class="mb-6">
+                <h4 class="font-semibold">Downtown Location</h4>
+                <address class="not-italic">
+                  456 Main Street<br>
+                  New York, NY 10002<br>
+                  (555) 987-6543
+                </address>
+                <div class="mt-2">
+                  <div class="font-medium">Hours:</div>
+                  <div class="text-sm">Monday-Friday: 8AM - 6PM</div>
+                  <div class="text-sm">Saturday: 9AM - 4PM</div>
+                  <div class="text-sm">Sunday: Closed</div>
+                </div>
+              </div>
+
+              <div>
+                <h4 class="font-semibold">Brooklyn Shop</h4>
+                <address class="not-italic">
+                  789 Bedford Avenue<br>
+                  Brooklyn, NY 11211<br>
+                  (555) 456-7890
+                </address>
+                <div class="mt-2">
+                  <div class="font-medium">Hours:</div>
+                  <div class="text-sm">Wednesday-Sunday: 10AM - 6PM</div>
+                  <div class="text-sm">Monday-Tuesday: Closed</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- Contact Page -->
+  <div id="contactPage" style="display: none;">
+    <div class="container py-8">
+      <div class="breadcrumbs">
+        <div class="breadcrumb-item">
+          <a href="index.html">Home</a>
+          <span class="breadcrumb-separator">
+            <i class="fas fa-chevron-right text-xs"></i>
+          </span>
+        </div>
+        <div class="breadcrumb-item active">Contact Us</div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+        <div>
+          <h1 class="text-3xl font-bold mb-6">Get in Touch</h1>
+          <p class="mb-8">Have questions about our cakes, want to place a custom order, or need help with
+            anything else? We're here to help! Fill out the form and we'll get back to you as soon as
+            possible.</p>
+
+          <div class="space-y-6">
+            <div class="flex items-start">
+              <div
+                class="flex-shrink-0 h-10 w-10 rounded-full bg-pink-100 dark:bg-gray-800 flex items-center justify-center text-pink-500 mr-4">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div>
+                <h3 class="font-semibold mb-1">Visit Us</h3>
+                <address class="not-italic">
+                  123 Baker Street<br>
+                  New York, NY 10001<br>
+                  United States
+                </address>
+              </div>
+            </div>
+
+            <div class="flex items-start">
+              <div
+                class="flex-shrink-0 h-10 w-10 rounded-full bg-pink-100 dark:bg-gray-800 flex items-center justify-center text-pink-500 mr-4">
+                <i class="fas fa-phone"></i>
+              </div>
+              <div>
+                <h3 class="font-semibold mb-1">Call Us</h3>
+                <p>Main: (555) 123-4567</p>
+                <p>Orders: (555) 987-6543</p>
+              </div>
+            </div>
+
+            <div class="flex items-start">
+              <div
+                class="flex-shrink-0 h-10 w-10 rounded-full bg-pink-100 dark:bg-gray-800 flex items-center justify-center text-pink-500 mr-4">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div>
+                <h3 class="font-semibold mb-1">Email Us</h3>
+                <p>General Inquiries: info@sweetdelights.com</p>
+                <p>Orders: orders@sweetdelights.com</p>
+                <p>Customer Support: support@sweetdelights.com</p>
+              </div>
+            </div>
+
+            <div class="flex items-start">
+              <div
+                class="flex-shrink-0 h-10 w-10 rounded-full bg-pink-100 dark:bg-gray-800 flex items-center justify-center text-pink-500 mr-4">
+                <i class="fas fa-clock"></i>
+              </div>
+              <div>
+                <h3 class="font-semibold mb-1">Business Hours</h3>
+                <p>Monday - Friday: 7AM - 7PM</p>
+                <p>Saturday: 8AM - 5PM</p>
+                <p>Sunday: 8AM - 3PM</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-8">
+            <h3 class="font-semibold mb-4">Connect With Us</h3>
+            <div class="social-links">
+              <a href="#" class="social-link" aria-label="Facebook">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="#" class="social-link" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="#" class="social-link" aria-label="Twitter">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="#" class="social-link" aria-label="Pinterest">
+                <i class="fab fa-pinterest-p"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="card p-8">
+            <h2 class="text-2xl font-bold mb-6">Send Us a Message</h2>
+            <form id="contactForm">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+                <div class="form-group">
+                  <label for="name" class="input-label">Your Name*</label>
+                  <input type="text" id="name" name="name" class="input" required>
+                  <div class="error-message" id="nameError"></div>
+                </div>
+                <div class="form-group">
+                  <label for="email" class="input-label">Email Address*</label>
+                  <input type="email" id="email" name="email" class="input" required>
+                  <div class="error-message" id="emailError"></div>
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+                <div class="form-group">
+                  <label for="phone" class="input-label">Phone Number</label>
+                  <input type="tel" id="phone" name="phone" class="input">
+                  <div class="error-message" id="phoneError"></div>
+                </div>
+                <div class="form-group">
+                  <label for="subject" class="input-label">Subject*</label>
+                  <input type="text" id="subject" name="subject" class="input" required>
+                  <div class="error-message" id="subjectError"></div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="message" class="input-label">Your Message*</label>
+                <textarea id="message" name="message" class="input" rows="6" required></textarea>
+                <div class="error-message" id="messageError"></div>
+              </div>
+
+              <div class="form-group">
+                <label class="checkbox-container flex items-start">
+                  <input type="checkbox" name="consent" id="consent" required>
+                  <span class="checkmark mt-1"></span>
+                  <span class="text-sm ml-2">I agree that my submitted data is being collected and
+                    stored. For further details on handling user data, please refer to our <a href="#"
+                      class="text-pink-500">Privacy Policy</a>.</span>
+                </label>
+                <div class="error-message" id="consentError"></div>
+              </div>
+
+              <div id="formResult" class="mb-4 hidden"></div>
+
+              <button type="submit" class="btn btn-primary">
+                <i class="fas fa-paper-plane mr-2"></i> Send Message
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <section class="mb-16">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold mb-4">Frequently Asked Questions</h2>
+          <p class="text-lg max-w-2xl mx-auto">Find answers to our most commonly asked questions.</p>
+        </div>
+
+        <div class="max-w-3xl mx-auto">
+          <div class="card mb-4">
+            <div class="p-6">
+              <h3 class="font-semibold mb-2">How far in advance should I order a cake?</h3>
+              <p>For standard cakes, we recommend ordering at least 48 hours in advance. For custom or
+                wedding cakes, we suggest placing your order 2-4 weeks ahead to ensure availability.</p>
+            </div>
+          </div>
+
+          <div class="card mb-4">
+            <div class="p-6">
+              <h3 class="font-semibold mb-2">Do you accommodate dietary restrictions?</h3>
+              <p>Yes! We offer vegan, gluten-free, and nut-free options. Please let us know about any
+                allergies or dietary requirements when placing your order.</p>
+            </div>
+          </div>
+
+          <div class="card mb-4">
+            <div class="p-6">
+              <h3 class="font-semibold mb-2">What is your delivery area?</h3>
+              <p>We deliver throughout the New York City area, including Manhattan, Brooklyn, Queens, and
+                the Bronx. Additional delivery fees may apply depending on the location.</p>
+            </div>
+          </div>
+
+          <div class="card mb-4">
+            <div class="p-6">
+              <h3 class="font-semibold mb-2">Can I request a cake tasting?</h3>
+              <p>Absolutely! We offer cake tastings by appointment. This is particularly recommended for
+                wedding cakes or large event orders. Please contact us to schedule a tasting session.
+              </p>
+            </div>
+          </div>
+
+          <div class="card mb-4">
+            <div class="p-6">
+              <h3 class="font-semibold mb-2">What payment methods do you accept?</h3>
+              <p>We accept all major credit cards, PayPal, and bank transfers. For orders over $500, we
+                require a 50% deposit at the time of ordering.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- Order Modal -->
+  <div class="modal" id="orderModal">
+    <div class="modal-overlay"></div>
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3 class="modal-title">Place an Order</h3>
+        <button class="modal-close" id="closeOrderModal">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="orderForm">
+          <div class="mb-4">
+            <h4 class="font-semibold mb-2" id="orderCakeName">Cake Name</h4>
+            <div class="flex items-center">
+              <div id="orderDetails"></div>
+              <div class="ml-auto text-lg font-bold text-pink-500" id="orderPrice"></div>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+            <div class="form-group">
+              <label for="orderName" class="input-label">Your Name*</label>
+              <input type="text" id="orderName" name="orderName" class="input" required>
+              <div class="error-message" id="orderNameError"></div>
+            </div>
+            <div class="form-group">
+              <label for="orderEmail" class="input-label">Email Address*</label>
+              <input type="email" id="orderEmail" name="orderEmail" class="input" required>
+              <div class="error-message" id="orderEmailError"></div>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+            <div class="form-group">
+              <label for="orderPhone" class="input-label">Phone Number*</label>
+              <input type="tel" id="orderPhone" name="orderPhone" class="input" required>
+              <div class="error-message" id="orderPhoneError"></div>
+            </div>
+            <div class="form-group">
+              <label for="orderDate" class="input-label">Delivery Date*</label>
+              <input type="date" id="orderDate" name="orderDate" class="input" required>
+              <div class="error-message" id="orderDateError"></div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="orderAddress" class="input-label">Delivery Address*</label>
+            <textarea id="orderAddress" name="orderAddress" class="input" rows="3" required></textarea>
+            <div class="error-message" id="orderAddressError"></div>
+          </div>
+
+          <div class="form-group">
+            <label for="orderNotes" class="input-label">Special Instructions</label>
+            <textarea id="orderNotes" name="orderNotes" class="input" rows="3"
+              placeholder="Any special requests or delivery instructions?"></textarea>
+          </div>
+
+          <div id="orderResult" class="mb-4 hidden"></div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline" id="cancelOrderBtn">Cancel</button>
+        <button type="button" class="btn btn-primary" id="submitOrderBtn">
+          <i class="fas fa-shopping-cart mr-2"></i> Place Order
+        </button>
+      </div>
+    </div>
+  </div>
+
 </body>
-<script src="./script.js"></script>
 
 </html>
